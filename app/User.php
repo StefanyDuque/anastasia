@@ -5,20 +5,18 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = "usuario";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-         'usuario', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -27,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password'
+        'password', 'remember_token',
     ];
 
     /**
@@ -35,5 +33,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

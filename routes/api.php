@@ -17,4 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('login','Login@init');
+
+
+Route::resource('usuarios', 'usuarioAPIController');
+
+Route::resource('sesions', 'sesionAPIController');
+
+Route::resource('servicios', 'servicioAPIController');
+
+Route::resource('detalle_servicios', 'detalle_servicioAPIController');
+
+Route::resource('categorias', 'categoriaAPIController');
+
+Route::resource('productos', 'productoAPIController');
+
+Route::resource('pedidos', 'pedidoAPIController');
+
+Route::resource('detalle_pedidos', 'detalle_pedidoAPIController');
